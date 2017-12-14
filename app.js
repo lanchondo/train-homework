@@ -11,10 +11,10 @@ firebase.initializeApp(config);
 var database = firebase.database();
 $('#addTrainBtn').on("click", function() {
   // take user input
-  var trainName = $("#trainNameInput").val().trim();
-  var destination = $("#destinationInput").val().trim();
-  var firstTrain = moment($("#timeInput").val().trim(), "HH:mm").format("HH:mm");
-  var frequency = $("#frequencyInput").val().trim();
+  var trainName = $("#trainNameForm").val().trim();
+  var destination = $("#destinationForm").val().trim();
+  var firstTrain = moment($("#timeForm").val().trim(), "HH:mm").format("HH:mm");
+  var frequency = $("#frequencyForm").val().trim();
   // to create local temporary object to hold train data
   var newTrain = {
       name: trainName,
@@ -26,10 +26,10 @@ $('#addTrainBtn').on("click", function() {
   database.ref().push(newTrain);
   console.log(newTrain.name);
   // clears all the text-boxes
-  $("#trainNameInput").val("");
-  $("#destinationInput").val("");
-  $("#timeInput").val("");
-  $("#frequencyInput").val("");
+  $("#trainNameForm").val("");
+  $("#destinationForm").val("");
+  $("#timeForm").val("");
+  $("#frequencyForm").val("");
   // Prevents moving to new page
   return false;
 });
