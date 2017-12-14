@@ -15,14 +15,14 @@ $('#addTrainBtn').on("click", function() {
   var destination = $("#destinationInput").val().trim();
   var firstTrain = moment($("#timeInput").val().trim(), "HH:mm").format("HH:mm");
   var frequency = $("#frequencyInput").val().trim();
-  // to create local temporary object to hold train data
+  // Temporarily hold the train information
   var newTrain = {
       name: trainName,
       place: destination,
       ftrain: firstTrain,
       freq: frequency
     }
-    // uploads train data to the database
+    // Upload data to firebase
   database.ref().push(newTrain);
   console.log(newTrain.name);
   // clears all the text-boxes
